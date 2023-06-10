@@ -6,7 +6,7 @@ const stateTasks = useSelector((state) => state.tasks);
 console.log(stateTasks)
 
     return(
-        <div>TaskForm</div>
+        <form action=""></form>
     )
 }
 export default TaskForm
