@@ -17,7 +17,7 @@ const initialState = [
 export const taskslice = createSlice({
     name: "tasks",
     initialState,
-    reducers:{
+    reducers:{  
 
     }
 
