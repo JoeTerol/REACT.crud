@@ -21,23 +21,36 @@ export const taskslice = createSlice({
         addTask: (state, action) => {
             state.push(action.payload)
 
-    },  editTask: (state, action) => {
+    },  
+    editTask: (state, action) => {
          const { id, title, description } = action.payload
-        const foundTask = state.find(task => task.id === id)
-        if (foundTask) {
-            foundTask.title = title
-            foundTask.description = description
+         const foundTask = state.find(task => task.id === id)
+           if (foundTask) {
+              foundTask.title = title
+              foundTask.description = description
         }
              
 
-    },
+     }, 
+//          editTask: (state, action) => {
+//              const { id, title, description } = action.payload;
+//              const taskIndex = state.findIndex((task) => task.id === id);
+//                  if (taskIndex !== -1) {
+//                     upDateTask = { ...state[taskIndex], title, description };
+//                     state.splice(taskIndex, 1, upDateTask);
+//                 }
+// },
 
         deleteTask: (state, action) => {
-            const taskFound = state.find(task => task.id === action.payload)
-            if (taskFound) {
-                state.splice(state.indexOf(taskFound), 1)
-            }
+         const taskId = action.payload;
+         return state.filter((task) => task.id !== taskId);
     },
+    //     deleteTask: (state, action) => {
+    //         const taskFound = state.find(task => task.id === action.payload)
+    //         if (taskFound) {
+    //             state.splice(state.indexOf(taskFound), 1)
+    //         }
+    // },
    
  },
 })

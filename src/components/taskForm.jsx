@@ -25,14 +25,18 @@ const handlechange = e => {
 const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (params.id){
+    if (params.id) {
       dispatch(editTask(task))  
+    }else {
+        dispatch(addTask({
+            ...task,
+            id: uuid(),
+        })
+        );
+         
     }
 
-    dispatch(addTask({
-        ...task,
-        id: uuid(),
-    }))
+  
     Navigate("/")
 }
 
